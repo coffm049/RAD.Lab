@@ -1,0 +1,16 @@
+Package: RAD.Lab
+Title: ANT and IGT summarizers 
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Christian",
+           family = "Coffman",
+           role = c("aut", "cre"),
+           email = "coffm049@umn.edu",
+           comment = c(ORCID = "0000-0002-5524-864X"))
+Description: Calculates summary values from Attention Network and Iowa Gambling tasks, specifically with the task basis set up as of 1/11/21
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
