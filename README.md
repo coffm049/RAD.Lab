@@ -46,3 +46,32 @@ results <- rbind(r1, r2, r3)
 
 # save results as a csv if you want.
 write.csv(results, "ANT_results.csv")
+
+# Example for IGT data
+# need to have rstudioapi, tidyverse, rprime, and wrapr
+# install with 
+# install.packages(c("rstudioapi", "tidyverse", "rprime", "wrapr"))
+library(rstudioapi)
+
+# Enter the file path for the IGT .txt data
+IGT_folder <- selectDirectory()
+
+
+# End User input
+######################
+# Source the script with ANT functions
+source("Scripts/IGT-functions.R")
+
+# get all text files in folder
+files <- list.files(IGT_folder)
+files <- files[endsWith(files, ".txt")]
+
+results <-   results <- tibble()
+
+
+for (file in files) {
+  result <- IGT_metrics(paste0(IGT_folder, file))
+  results <- rbind(results, result)
+}
+
+results
