@@ -183,7 +183,8 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
 #'
 #' A function that computes all of the ANT metrics for an entire folder of eprime data.
 #' @param thirds specifies whether the medians should be calculated for eacah third of the observation time separately. Default is FALSE.
-#' @return Returns Attention systmes metrics as well as Accuracy, reaction time, and corresponding third of experimetn metrics was computed off of.
+#' @param out specifies where to save results, default is to not save output 
+#' @return Returns Attention systmes metrics as well as Accuracy, reaction time, and corresponding third of experimetn metrics was computed off of for all subjects in the speciffied folder
 #' @export
 
 
