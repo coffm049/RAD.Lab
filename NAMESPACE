@@ -3,6 +3,7 @@
 export("%>%")
 export(ANT_calculator)
 export(Attention_systems_calculator)
+export(IGT_calculator)
 export(IGT_count_RT_metrics)
 export(IGT_load)
 export(IGT_metrics)
