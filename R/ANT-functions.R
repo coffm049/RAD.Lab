@@ -113,7 +113,7 @@ calc_systems <- function(df, thirds = FALSE) {
 
 Attention_systems_calculator <- function(file, thirds = FALSE) {
   # convert eprime text to dataframe
-  dat <- eprime_to_dataframe(file)
+  dat <- eprime_to_dataframes(file)
   
   # attach subject grid
   # note that it references the "i" from the higher up for loop
@@ -121,7 +121,7 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
   subject <- sub(".", "", subject)
   
   # attach year of observation
-  year <- stringr::str_extract(files, "[1-3]")
+  year <- stringr::str_extract(file, "[1-3]")
   
   
   # Calculate and return results
