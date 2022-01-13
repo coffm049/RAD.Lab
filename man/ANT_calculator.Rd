@@ -4,7 +4,7 @@
 \alias{ANT_calculator}
 \title{Complete Attention systems calculator}
 \usage{
-ANT_calculator(out = "NULL")
+ANT_calculator(folder = "NULL", out = "NULL")
 }
 \arguments{
 \item{out}{specifies where to save results, default is to not save output}
