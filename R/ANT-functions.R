@@ -126,7 +126,7 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
   
   # Calculate and return results
   results <- calc_systems(dat, thirds)
-  cbind(subect, year, results)
+  cbind(subject, year, results)
 }
 
 #' Complete Attention systems calculator 
