@@ -113,7 +113,7 @@ calc_systems <- function(df, thirds = FALSE) {
 
 Attention_systems_calculator <- function(file, thirds = FALSE) {
   # convert eprime text to dataframe
-  dat <- eprime_to_dataframes(file)
+  dat <- eprime_to_dataframe(file)
   
   # attach subject grid
   # note that it references the "i" from the higher up for loop
