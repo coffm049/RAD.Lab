@@ -141,7 +141,7 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
 
 ANT_calculator <- function(folder = "NULL", out="NULL") {
   # if user doesn't define folder, have them select it
-  if (folder ="NULL") {
+  if (folder == "NULL") {
     ANT_folder <- rstudioapi::selectDirectory()
   } else {
     ANT_folder <- folder
