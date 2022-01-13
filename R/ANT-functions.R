@@ -172,7 +172,7 @@ calc_systems <- function(df, thirds = FALSE) {
 
 Attention_systems_calculator <- function(file, thirds = FALSE) {
   # convert eprime text to dataframe
-  dat <- eprime_to_dataframe(test_filepath)
+  dat <- eprime_to_dataframe(file)
   
   # Calculate and return results
   calc_systems(dat, thirds)
