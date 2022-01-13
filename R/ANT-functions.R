@@ -68,7 +68,7 @@ calc_systems <- function(df, thirds = FALSE) {
     
     # find the medians
     dplyr::summarize(med = median(SlideTarget.RT, na.rm = TRUE)) %>%
-    dplyr::pivot_wider(names_from = cue, values_from=med)
+    tidyr::pivot_wider(names_from = cue, values_from=med)
   
     # All calculations are done on medians for stability since these distributions are often quite skewed.
   
@@ -90,7 +90,7 @@ calc_systems <- function(df, thirds = FALSE) {
     # find the medians
     dplyr::summarize(med = median(SlideTarget.RT, na.rm = TRUE)) %>%
     
-    dplyr::pivot_wider(names_from = FlankerType, values_from = med) %>%
+    tidyr::pivot_wider(names_from = FlankerType, values_from = med) %>%
     
     # take the difference of the medians
     dplyr::mutate(conflict = incongruent - congruent)
