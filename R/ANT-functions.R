@@ -140,8 +140,12 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
 
 
 ANT_calculator <- function(folder = "NULL", out="NULL") {
-  # ANT_folder <- rstudioapi::selectDirectory()
-  ANT_folder <- folder
+  # if user doesn't define folder, have them select it
+  if (folder ="NULL") {
+    ANT_folder <- rstudioapi::selectDirectory()
+  } else {
+    ANT_folder <- folder
+  }
   # Extract the files in that folder 
   files <- list.files(ANT_folder, full.names = TRUE)
   # select only the .txt files
