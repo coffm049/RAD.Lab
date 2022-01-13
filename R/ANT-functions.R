@@ -121,7 +121,7 @@ calc_systems <- function(df, thirds = FALSE) {
 
 Attention_systems_calculator <- function(file, thirds = FALSE) {
   # convert eprime text to dataframe
-  dat <- rprime::eprime_to_dataframe(file)
+  dat <- eprime_to_dataframe(file)
   
   # Calculate and return results
   calc_systems(dat, thirds)
@@ -145,7 +145,7 @@ ANT_calculator <- function(out="NULL") {
   files <- list.files(ANT_folder, full.names = TRUE)
   
   # select only the .txt files
-  files <- files[str_ends(files, ".txt")]
+  files <- files[stringr::str_ends(files, ".txt")]
   # Seed empty results dataframe to input results
   results <- data.frame()
   
