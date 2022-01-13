@@ -98,17 +98,9 @@ calc_systems <- function(df, thirds = FALSE) {
   results <- dplyr::tibble("Alert" = alerting$no, "Orient" = orienting$center, "Conflict" = conflict$conflict,
                     "ACC" = ACC$acc, "Median_RT" = RT$rt)
   results$Third <- if(thirds == TRUE) {1:nrow(results)} else {0}
-  # attach subject grid
-  # note that it references the "i" from the higher up for loop
-  subject <- stringr::str_extract(files[[i]], "-[:alnum:]*")
-  subject <- sub(".", "", subject)
-
-  # attach year of observation
-  year <- stringr::str_extract(files[[i]], "[1-3]")
   
-  
-  
-  cbind(subject, year, results)
+  # return resutls
+  results
 }
 
 #' Attention systems calculator 
@@ -123,9 +115,18 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
   # convert eprime text to dataframe
   dat <- eprime_to_dataframe(file)
   
-  # Calculate and return results
-  calc_systems(dat, thirds)
+  # attach subject grid
+  # note that it references the "i" from the higher up for loop
+  subject <- stringr::str_extract(file, "-[:alnum:]*")
+  subject <- sub(".", "", subject)
   
+  # attach year of observation
+  year <- stringr::str_extract(files, "[1-3]")
+  
+  
+  # Calculate and return results
+  results <- calc_systems(dat, thirds)
+  cbind(subect, year, results)
 }
 
 #' Complete Attention systems calculator 
