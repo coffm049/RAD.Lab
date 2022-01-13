@@ -138,9 +138,9 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
 #' @export
 
 
-ANT_calculator <- function(out="NULL") {
-  ANT_folder <- rstudioapi::selectDirectory()
-  
+ANT_calculator <- function(folder = "NULL", out="NULL") {
+  # ANT_folder <- rstudioapi::selectDirectory()
+  ANT_folder <- folder
   # Extract the files in that folder 
   files <- list.files(ANT_folder, full.names = TRUE)
   print(files)
