@@ -133,6 +133,8 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
 #'
 #' A function that computes all of the ANT metrics for an entire folder of eprime data. Reteurns both  summarries for 
 #' thirds of the experiment and for the whole observation (when thirds =0)
+#' @param folder specifies the folder with the ANT data which you want to compute over. If unspecified it enters
+#'               an interactive interface to select the directory
 #' @param out specifies where to save results, default is to not save output 
 #' @return Returns Attention systmes metrics as well as Accuracy, reaction time, and corresponding third of experimetn metrics was computed off of for all subjects in the speciffied folder 
 #'         Thirds refer to which third of the experimetnt the summariaes were calculated from. 0 refers to using the whole observation

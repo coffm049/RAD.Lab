@@ -7,6 +7,9 @@
 ANT_calculator(folder = "NULL", out = "NULL")
 }
 \arguments{
+\item{folder}{specifies the folder with the ANT data which you want to compute over. If unspecified it enters
+an interactive interface to select the directory}
+
 \item{out}{specifies where to save results, default is to not save output}
 }
 \value{
