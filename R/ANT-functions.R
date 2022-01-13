@@ -143,9 +143,10 @@ ANT_calculator <- function(out="NULL") {
   
   # Extract the files in that folder 
   files <- list.files(ANT_folder, full.names = TRUE)
-  
+  print(files)
   # select only the .txt files
   files <- files[stringr::str_ends(files, ".txt")]
+  print(files)
   # Seed empty results dataframe to input results
   results <- data.frame()
   
