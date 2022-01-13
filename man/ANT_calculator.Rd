@@ -4,16 +4,16 @@
 \alias{ANT_calculator}
 \title{Complete Attention systems calculator}
 \usage{
-ANT_calculator(thirds = FALSE, out = "NULL")
+ANT_calculator(out = "NULL")
 }
 \arguments{
-\item{thirds}{specifies whether the medians should be calculated for eacah third of the observation time separately. Default is FALSE.}
-
 \item{out}{specifies where to save results, default is to not save output}
 }
 \value{
 Returns Attention systmes metrics as well as Accuracy, reaction time, and corresponding third of experimetn metrics was computed off of for all subjects in the speciffied folder
+Thirds refer to which third of the experimetnt the summariaes were calculated from. 0 refers to using the whole observation
 }
 \description{
-A function that computes all of the ANT metrics for an entire folder of eprime data.
+A function that computes all of the ANT metrics for an entire folder of eprime data. Reteurns both  summarries for
+thirds of the experiment and for the whole observation (when thirds =0)
 }

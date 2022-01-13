@@ -137,14 +137,15 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
 
 #' Complete Attention systems calculator 
 #'
-#' A function that computes all of the ANT metrics for an entire folder of eprime data.
-#' @param thirds specifies whether the medians should be calculated for eacah third of the observation time separately. Default is FALSE.
+#' A function that computes all of the ANT metrics for an entire folder of eprime data. Reteurns both  summarries for 
+#' thirds of the experiment and for the whole observation (when thirds =0)
 #' @param out specifies where to save results, default is to not save output 
-#' @return Returns Attention systmes metrics as well as Accuracy, reaction time, and corresponding third of experimetn metrics was computed off of for all subjects in the speciffied folder
+#' @return Returns Attention systmes metrics as well as Accuracy, reaction time, and corresponding third of experimetn metrics was computed off of for all subjects in the speciffied folder 
+#'         Thirds refer to which third of the experimetnt the summariaes were calculated from. 0 refers to using the whole observation
 #' @export
 
 
-ANT_calculator <- function(thirds = FALSE, out="NULL") {
+ANT_calculator <- function(out="NULL") {
   ANT_folder <- selectDirectory()
   
   # Extract the files in that folder 
@@ -157,18 +158,18 @@ ANT_calculator <- function(thirds = FALSE, out="NULL") {
   
   
   # compute attention network metrics for each experiment
-  for (i in 1:(length(files))) {
+  for (i in 1:3) {
    print(paste("Processing experiment", i))
    results <- rbind(results, Attention_systems_calculator(files[i], thirds = FALSE))
    results <- rbind(results, Attention_systems_calculator(files[i], thirds = TRUE))
   }
   
-  r1 <- results
-  r2 <- results
-  r3 <- results
+  #r1 <- results
+  #r2 <- results
+  #r3 <- results
   #### This is for storing and combining results from multiple years.
    
-  results <- rbind(r1, r2, r3)
+  #results <- rbind(r1, r2, r3)
   
   # save results as a csv if you want.
   if (out != "NULL") {
