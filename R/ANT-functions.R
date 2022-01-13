@@ -144,16 +144,14 @@ ANT_calculator <- function(folder = "NULL", out="NULL") {
   ANT_folder <- folder
   # Extract the files in that folder 
   files <- list.files(ANT_folder, full.names = TRUE)
-  print(files)
   # select only the .txt files
   files <- files[grepl("*.txt$", files)]
-  print(files)
   # Seed empty results dataframe to input results
   results <- data.frame()
   
   
   # compute attention network metrics for each experiment
-  for (i in 1:3) {
+  for (i in 1:(length(files))) {
    print(paste("Processing experiment", i))
    results <- rbind(results, Attention_systems_calculator(files[[i]], thirds = FALSE))
    results <- rbind(results, Attention_systems_calculator(files[[i]], thirds = TRUE))
