@@ -1,9 +1,9 @@
 library(tidyverse)
 library(rprime)
 library(wrapr)
+library(rstudioapi)
 
 
-# split data into three time frames
 
 #' An Eprime conversion function
 #' 
@@ -177,5 +177,47 @@ Attention_systems_calculator <- function(file, thirds = FALSE) {
   # Calculate and return results
   calc_systems(dat, thirds)
   
+}
+
+#' Complete Attention systems calculator 
+#'
+#' A function that computes all of the ANT metrics for an entire folder of eprime data.
+#' @param thirds specifies whether the medians should be calculated for eacah third of the observation time separately. Default is FALSE.
+#' @return Returns Attention systmes metrics as well as Accuracy, reaction time, and corresponding third of experimetn metrics was computed off of.
+#' @export
+
+
+ANT_calculator <- function(thirds = FALSE, out="NULL") {
+  ANT_folder <- selectDirectory()
+  
+  # Extract the files in that folder 
+  files <- list.files(ANT_folder, full.names = TRUE)
+  
+  # select only the .txt files
+  files <- files[str_ends(files, ".txt")]
+  # Seed empty results dataframe to input results
+  results <- data.frame()
+  
+  
+  # compute attention network metrics for each experiment
+  for (i in 1:(length(files))) {
+   print(paste("Processing experiment", i))
+   results <- rbind(results, Attention_systems_calculator(files[i], thirds = FALSE))
+   results <- rbind(results, Attention_systems_calculator(files[i], thirds = TRUE))
+  }
+  
+  r1 <- results
+  r2 <- results
+  r3 <- results
+  #### This is for storing and combining results from multiple years.
+   
+  results <- rbind(r1, r2, r3)
+  
+  # save results as a csv if you want.
+  if (out != "NULL") {
+    write.csv(results, out) 
+  }
+  # return results
+  results
 }
 
