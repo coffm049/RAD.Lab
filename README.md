@@ -24,3 +24,29 @@ Functions for processing ANT data are held in the "ANT-functions.R" script and w
     eprime_to_dataframe(wm_path) - which converts .txt files (wm_path argument) from eprime to R dataframes. It also selects only the column variables necessary for computing the three network metrics noted above. These columns are: FlankerType, SlideTarget.ACC, SlideTarget.RT, WarningType. Lastly, this function converts the necessary columns into numeric variables as opposed to character variables, which they are initially read in as.
     calc_systems(df, thirds=FALSE) - This function finds the medians reaction time for each cue type, and if thirds = TRUE it groups by which third of the experiment the observation was made, it then calculates the three network metrics noted above simply as the differences of those medians and returns a data frame of those calculations
     Attention_systems_calculator(test_filepath, thirds= FALSE) - This function calls the previous two functions together to convert and calculate results from the ANT analysis and outputs them in a dataframe. test_filepath is the name of the filepath of the ANT data, where thirds specifies if the observations of each subject will be split into thirds or not
+    
+    
+    
+    
+    
+    
+# Iowa-Gambling-Task
+## Overview
+A tool for processing IGTs in R. This provides functions to process .txt file produced from eprime particularly Iowa gambling tests. Metrics that are reported have to do with card counts and score so far. We are thinking about adding metrics on comparing reaction times
+
+Summaries of count based metrics
+- Good = Number of times a "good" deck was chosen
+- Learning of Long-term Consequences = Good - Bad
+- Score = final score of the subject after the experiment
+- Bias for infrequent loss = "Infrequent loss decks" - "Frequent loss decks"
+
+
+# Instructions
+
+1. Clone this repository into an accessible folder.
+2. Open the "IGT-processor.R" script.
+3. Specify the folder holding the IGT data
+4. Run the script 
+ 
+## Details
+
